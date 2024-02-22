@@ -9,18 +9,20 @@ namespace Statki
     internal class BattleField
     {
         public int[,] fields = new int[10,10];
-        private char water_icon = '░';
-        private char taken_water_icon = '▒';
-        private char ship_icon = '■';
+        private char water_icon = Convert.ToChar(126);
+        private char taken_water_icon = Convert.ToChar(58);
+        private char ship_icon = Convert.ToChar(9632);
 
         public void board_display()
         {
+            Console.WriteLine(" 12345678910");
             for (int i = 0; i < fields.GetLength(0); i++)
             {
-                Console.Write('\n');
-
+                Console.Write((char)('a'+i));
+                
                 for (int j = 0; j < fields.GetLength(1); j++)
                 {
+                    
                     if (fields[i, j] == 0)
                     {
                         Console.Write(water_icon);
@@ -34,7 +36,10 @@ namespace Statki
                         Console.Write(taken_water_icon);
                     }
                 }
+
+                Console.Write('\n');
             }
+            Console.WriteLine();
         }
 
         public void board_update()

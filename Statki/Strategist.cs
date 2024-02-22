@@ -1,6 +1,7 @@
 ﻿using System;
 using System.CodeDom;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -17,12 +18,22 @@ namespace Statki
             //horizontal
             if(ship.ship_direction == false )
             {
-                int prow = x--;
+                int prow = x-1;
                 int stern = ship.ship_lenght + x;
 
-                for (int i = prow; i <= stern ; i++)
+                for (int i = prow; i < stern - 1; i++)
                 {
-                    array[y-1, i] = 1;
+                    array[y - 1, i] = 1;
+                    
+                    if( y != 1) { array[y -2, i] = 2; }
+                    if(y != 10) { array[y, i] = 2; }
+                    if( prow != 0) { array[y - 1, prow - 1] = 2; }
+                    if( stern < 10) { array[y - 1, stern - 1] = 2; }
+                    // corners
+                    if( prow != 0 && y != 1) { array[y - 2, prow - 1] = 2; }
+                    if( prow != 0 && y != 10) { array[y, prow - 1] = 2; }
+                    if( stern < 10 && y != 1) { array[y - 2, stern - 1] = 2; }
+                    if (stern < 10 && y != 10) { array[y, stern - 1] = 2; }
                 }
             }//vertical
             else if (ship.ship_direction == true )
@@ -67,9 +78,22 @@ namespace Statki
                 {
                     Console.WriteLine($"{name}-masetd ship [{i}/{q}]");
                     Console.WriteLine("rotation [h/v]: ");
-                    rotation = bool.Parse(Console.ReadLine());
-                    if (rotation == true || rotation == false) { break; }
-                    Console.Clear();
+                    string rot_entry = Console.ReadLine();
+                    if(rot_entry == "h")
+                    {
+                        rotation = false;
+                        break;
+                    }
+                    else if(rot_entry == "v")
+                    {
+                        rotation = true;
+                        break;
+                    }
+                    else 
+                    {
+                        Console.Clear();
+                        Console.WriteLine("(Wrong value! Only 'h' or 'v'!)");
+                    }
                 } 
                 while (true);
 
@@ -78,9 +102,15 @@ namespace Statki
                 {
                     Console.WriteLine($"{name}-masetd ship [{i}/{q}]");
                     Console.WriteLine("position y [a-j]: ");
-                    position_y = char.Parse(Console.ReadLine()) - char.Parse("a") + 1;
-                    if (position_y >= 1 && position_y <= 10) { break; }
+                    string y_value = Console.ReadLine();
+                    if(y_value.Length == 1)
+                    {
+                        position_y = char.Parse(y_value) - char.Parse("a") + 1;
+                        if (position_y >= 1 && position_y <= 10) 
+                        { break; }
+                    }
                     Console.Clear();
+                    Console.WriteLine("(Wrong value! Only one letter from the a-j range!)");
                 } 
                 while (true);
 
@@ -89,9 +119,15 @@ namespace Statki
                 {
                     Console.WriteLine($"{name}-masetd ship [{i}/{q}]");
                     Console.WriteLine("position x [1-10]: ");
-                    position_x = int.Parse(Console.ReadLine());
-                    if (position_x >= 1 && position_x <= 10) { break; }
+                    string x_value = Console.ReadLine();
+                    if (x_value.Length <= 2)
+                    {
+                        position_x = int.Parse(x_value);
+                        if (position_x >= 1 && position_x <= 10)
+                        { break; }
+                    }
                     Console.Clear();
+                    Console.WriteLine("(Wrong value!)");
                 }
                 while (true);
 
