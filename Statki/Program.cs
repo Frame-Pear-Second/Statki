@@ -11,19 +11,8 @@ namespace Statki
         static void Main(string[] args)
         {
 
-            BattleField test = new BattleField();
-            test.board_update();
-
-            test.board_display();
-
-            Player player1 = new Player();
-            Strategist strategist = new Strategist();
-
-            strategist.creating_ships(1, player1);
-            strategist.adding_ship_to_BattleField(test.fields, player1.list_of_ships[0]);
-
-
-            test.board_display();
+            Game test_round = new Game();
+            test_round.phase_1();
 
             Console.ReadLine();
         }
