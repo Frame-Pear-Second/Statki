@@ -13,6 +13,7 @@ namespace Statki
 
             Game test_round = new Game();
             test_round.phase_1();
+            test_round.phase_2();
 
             Console.ReadLine();
         }

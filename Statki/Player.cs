@@ -8,9 +8,10 @@ namespace Statki
 {
     internal class Player
     {
+        public int name;
         public int wins;
         public int[] alive_ships = new int[4];
         public List<Ship> list_of_ships = new List<Ship>();
-        public Player() { }
+        public Player(int name) { this.name = name; }
     }
 }
