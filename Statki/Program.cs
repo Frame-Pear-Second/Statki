@@ -10,12 +10,14 @@ namespace Statki
     {
         static void Main(string[] args)
         {
+            do
+            {
+                Game round = new Game();
+                round.phase_1();
+                round.phase_2();
 
-            Game test_round = new Game();
-            test_round.phase_1();
-            test_round.phase_2();
+            } while (true);
 
-            Console.ReadLine();
         }
     }
 }

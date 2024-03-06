@@ -15,6 +15,8 @@ namespace Statki
         private char missIcon = '@';
         private char hitIcon = '#';
 
+
+        
         public void board_display()
         {
             Console.WriteLine(" 12345678910");
@@ -27,20 +29,18 @@ namespace Statki
 
                     switch (fields[i, j])
                     {
-                        case 0:
-                            Console.Write(waterIcon);
-                            break;
                         case 1:
                             Console.Write(shipIcon);
                             break;
+                        case 0:
                         case 2:
-                            Console.Write(waterIcon);
-                            break;
                         case 3:
+                        case 4:
+                        case 6:
                             Console.Write(waterIcon);
                             break;
-                        case 6: 
-                            Console.Write(takenWaterIcon);
+                        case 5:
+                            Console.Write(hitIcon);
                             break;
                     }
 
@@ -56,11 +56,11 @@ namespace Statki
             Console.WriteLine(" 12345678910");
             for (int i = 0; i < fields.GetLength(0); i++)
             {
+                Console.ResetColor();
                 Console.Write((char)('a' + i));
                 if (i == target)
                 {
-                    Console.WriteLine("++++++++++");
-                    continue;
+                    Console.ForegroundColor = ConsoleColor.Red;
                 }
 
                 for (int j = 0; j < fields.GetLength(1); j++)
@@ -75,14 +75,12 @@ namespace Statki
                             Console.Write(shipIcon);
                             break;
                         case 2:
-                            Console.Write(waterIcon);
-                            break;
                         case 3:
                             Console.Write(waterIcon);
                             break;
                     }
                 }
-                Console.Write('\n');
+            Console.Write('\n');
             }
             Console.Write('\n');
         }
@@ -97,12 +95,12 @@ namespace Statki
             }
         }
 
-        public object CreatingRadar()
+        public void creating_radar(BattleField realBoard)
         {
-            return this.MemberwiseClone();
+            this.fields = (int[,])realBoard.fields.Clone();
         }
 
-        public void radarDisplay()
+        public void radar_display()
         {
             Console.WriteLine(" 12345678910");
             for (int i = 0; i < fields.GetLength(0); i++)
@@ -140,5 +138,6 @@ namespace Statki
             }
             Console.WriteLine();
         }
+
     }
 }

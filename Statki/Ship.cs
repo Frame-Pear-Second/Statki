@@ -8,7 +8,6 @@ namespace Statki
 {
     internal class Ship
     {
-        public int id;
         public string ship_class;
         public int ship_lenght;
         public bool ship_direction;
@@ -29,9 +28,8 @@ namespace Statki
         public void ship_describe()
         {
             Console.WriteLine();
-            Console.WriteLine($"Class of ship: {ship_class}");
+            Console.WriteLine($"HP: {ship_lives}");
             Console.WriteLine($"Lenght of ship: {ship_lenght}");
-            Console.WriteLine($"Direction of ship: {ship_direction}");
             Console.WriteLine($"X: {ship_x}");
             Console.WriteLine($"Y: {ship_y}");
         }
