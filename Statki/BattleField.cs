@@ -82,9 +82,9 @@ namespace Statki
                             break;
                     }
                 }
-
                 Console.Write('\n');
             }
+            Console.Write('\n');
         }
         public void board_update()
         {
