@@ -125,11 +125,9 @@ namespace Statki
                             Console.Write(hitIcon);
                             break;
                         case 6:
-                            Console.Write(takenWaterIcon);
+                            Console.Write(missIcon);
                             break;
-                        case 7:
-                            Console.Write(takenWaterIcon);
-                            break;
+
                     }
 
                 }
