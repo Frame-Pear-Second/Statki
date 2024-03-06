@@ -17,7 +17,7 @@ namespace Statki
                 round.phase_2();
 
             } while (true);
-
+            
         }
     }
 }
