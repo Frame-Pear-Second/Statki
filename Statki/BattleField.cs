@@ -83,6 +83,7 @@ namespace Statki
             Console.Write('\n');
             }
             Console.Write('\n');
+            Console.ResetColor();
         }
         public void board_update()
         {

@@ -109,7 +109,7 @@ namespace Statki
                         Console.Clear();
                         board.board_display();
                         Console.WriteLine("(Wrong value! [press enter])");
-                        Console.ReadKey();
+                        Console.ReadLine();
                     }
                     while (true);
 
@@ -159,7 +159,7 @@ namespace Statki
                     {
                         valid_ship = true;
                         Console.WriteLine("Ships are collyding! Try again. Press anything");
-                        Console.ReadKey();
+                        Console.ReadLine();
                         Console.Clear();
                     }
                     else
@@ -318,24 +318,24 @@ namespace Statki
                 case 0:
                     Console.WriteLine("You missed!");
                     Thread.Sleep(500);
-                    Console.WriteLine("Press anything to continue");
-                    Console.ReadKey();
+                    Console.WriteLine("Press enter to continue");
+                    Console.ReadLine();
                     return false;
                 case 1:
                     if (!damage(opponentBoard.fields ,opponent.list_of_ships, y_int, x_int))
                     {
                         Console.WriteLine("You hit the ship!");
                         Thread.Sleep(500);
-                        Console.WriteLine("Press anything to continue");
-                        Console.ReadKey();
+                        Console.WriteLine("Press enter to continue");
+                        Console.ReadLine();
                         return true;
                     }
                     else
                     {
                         Console.WriteLine("You successfully sunk the ship!");
                         Thread.Sleep(500);
-                        Console.WriteLine("Press anything to continue");
-                        Console.ReadKey();
+                        Console.WriteLine("Press enter to continue");
+                        Console.ReadLine();
                         if (opponent.list_of_ships.Count == 0)
                         {
                             return false;
@@ -346,8 +346,8 @@ namespace Statki
                 case 2:
                     Console.WriteLine("You have alredy shoot there");
                     Thread.Sleep(500);
-                    Console.WriteLine("Press anything to try again");
-                    Console.ReadKey();
+                    Console.WriteLine("Press enter to try again");
+                    Console.ReadLine();
                     return true;
                 default:
                     Console.WriteLine("eRROR");
@@ -453,7 +453,7 @@ namespace Statki
                     if (stern <= 10 && y != 10) { array[y, stern - 1] = 6; }        //right_down
                 }
             }//vertical
-            else if (wreck.ship_direction == true)
+            else if (wreck.ship_direction == true) 
             {
                 int prow = y - 1;
                 int stern = wreck.ship_lenght + prow;

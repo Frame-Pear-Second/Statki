@@ -20,6 +20,7 @@ namespace Statki
 
         public void phase_1()
         {
+            waiting(player1.name);
             player1Board.board_update();
             adding_ships(player1Board, player1);
             waiting(player2.name);
@@ -66,7 +67,7 @@ namespace Statki
 
         private void adding_ships(BattleField board, Player player)
         {
-            for (int i = 1; i <= 4; i++)
+            for (int i = 1; i <= 2; i++)
             {
                 strategist.creating_ships(i, board, strategist, player);
             }
@@ -96,6 +97,7 @@ namespace Statki
                 Console.Write("...");
                 Thread.Sleep(500);
             }
+            Console.ReadLine();
         }
     }
 }
