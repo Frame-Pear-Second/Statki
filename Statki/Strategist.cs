@@ -453,7 +453,7 @@ namespace Statki
                     if (stern <= 10 && y != 10) { array[y, stern - 1] = 6; }        //right_down
                 }
             }//vertical
-            else if (wreck.ship_direction == true)
+            else if (wreck.ship_direction == true) 
             {
                 int prow = y - 1;
                 int stern = wreck.ship_lenght + prow;
