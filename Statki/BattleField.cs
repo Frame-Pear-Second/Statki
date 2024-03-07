@@ -13,7 +13,7 @@ namespace Statki
         private char takenWaterIcon = Convert.ToChar(58);
         private char shipIcon = Convert.ToChar(9632);
         private char missIcon = '@';
-        private char hitIcon = '#';
+        private char hitIcon = '#'; 
 
 
         
