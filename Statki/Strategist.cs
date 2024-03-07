@@ -158,7 +158,7 @@ namespace Statki
                     if (checking_for_space(board.fields, position_x, position_y, size, rotation) == true)
                     {
                         valid_ship = true;
-                        Console.WriteLine("Ships are collyding! Try again. Press anything");
+                        Console.WriteLine("Ships are collyding! Try again. [press enter]");
                         Console.ReadLine();
                         Console.Clear();
                     }
